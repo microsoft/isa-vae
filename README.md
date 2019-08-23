@@ -1,14 +1,18 @@
+# Independent Subspace Analysis for Unsupervised Learning of Disentangled Representations
 
-# Contributing
+This repository contains the code for reproducing the quantitative experiments in our publication "Independent Subspace Analysis for Unsupervised Learning of Disentangled Representations"
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+## Usage
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+Help about the command line options is provided by the '-h' flag.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Datasets
+
+### dSprites
+The dSprites dataset can be downloaded from [here](https://github.com/deepmind/dsprites-dataset).
+
+### 3D faces
+We can't distribute this dataset due to the [license](https://faces.dmi.unibas.ch/bfm/main.php?nav=1-2&id=downloads). 
+
+## Contact
+Email t-jastuh@microsoft.com if you have questions about the code/data.
