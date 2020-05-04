@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'pytorch/latest'
+  vmImage: 'ubuntu-latest'
 strategy:
   matrix:
     Python35:
@@ -32,10 +32,10 @@ steps:
 
 - script: |
     cd lpnested-vae
-    python vae_quant.py -n 50 --var-clipping 0 --gpu 0 --dataset shapes --beta 2.0 -dist lpnested --isa '[2.1, [(2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4)]]' --save . --id 0 --seed 0
+    python vae_quant.py -n 1 --var-clipping 0 --gpu -1 --dataset shapes --beta 2.0 -dist lpnested --isa '[2.1, [(2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4)]]' --save . --id 0 --seed 0
   displayName: 'lpnested-vae'
 
 - script: |
     cd lpnested-vae-learn-exponents'
-    python vae_quant.py -n 50 --var-clipping 0 --gpu 0 --dataset shapes --beta 2.0 -dist lpnested --isa '[2.1, [(2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4)]]' --save . --id 0 --seed 0
+    python vae_quant.py -n 1 --var-clipping 0 --gpu -1 --dataset shapes --beta 2.0 -dist lpnested --isa '[2.1, [(2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4)]]' --save . --id 0 --seed 0
   displayName: 'lpnested-vae-learn-exponents'
