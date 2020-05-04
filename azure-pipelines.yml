@@ -18,6 +18,8 @@ strategy:
       python.version: '3.7'
 
 steps:
+- task: CredScan@3
+  displayName: Analyze source for credentials
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '$(python.version)'
