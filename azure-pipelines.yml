@@ -7,15 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
-strategy:
-  matrix:
-    Python35:
-      python.version: '3.5'
-    Python36:
-      python.version: '3.6'
-    Python37:
-      python.version: '3.7'
+  vmImage: 'windows-latest'
 
 steps:
 - task: CredScan@3
@@ -25,22 +17,3 @@ steps:
     scanType: 'Register'
     verbosity: 'Verbose'
     alertWarningLevel: 'High'
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
-
-- script: |
-    python -m pip install --upgrade pip
-    pip install --user tqdm matplotlib brewer2mpl torch
-  displayName: 'Install dependencies'
-
-- script: |
-    cd lpnested-vae
-    python vae_quant.py -n 1 --var-clipping 0 --gpu -1 --dataset shapes --beta 2.0 -dist lpnested --isa '[2.1, [(2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4)]]' --save . --id 0 --seed 0
-  displayName: 'lpnested-vae'
-
-- script: |
-    cd lpnested-vae-learn-exponents'
-    python vae_quant.py -n 1 --var-clipping 0 --gpu -1 --dataset shapes --beta 2.0 -dist lpnested --isa '[2.1, [(2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4), (2.2, 4)]]' --save . --id 0 --seed 0
-  displayName: 'lpnested-vae-learn-exponents'
