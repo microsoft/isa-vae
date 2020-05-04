@@ -20,6 +20,11 @@ strategy:
 steps:
 - task: CredScan@3
   displayName: Analyze source for credentials
+- task: ComponentGovernanceComponentDetection@0
+  inputs:
+    scanType: 'Register'
+    verbosity: 'Verbose'
+    alertWarningLevel: 'High'
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '$(python.version)'
